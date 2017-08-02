@@ -68,5 +68,14 @@ export interface state {
 }
 
 export interface area {
-  tick
+  tick(current: string, grain: any)
+}
+
+export interface age {
+  year: number
+  month: number
+  day: number
+  hour?: number
+  minute?: number
+  second?: number
 }
