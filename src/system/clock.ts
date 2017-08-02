@@ -3,20 +3,20 @@ import jade from '../creature/jade';
 
 export default class clock {
     private intervalHandler: any
-    private areas: Array<area>
+    public timer: number
 
-    static born(areas: Array<area>) {
-        return new clock(areas)
+    static born() {
+        return new clock()
     }
 
-    constructor(areas: Array<area>) {
-        this.areas = areas
-        this.tick()
+    constructor() {
+        this.timer = (new Date()).getTime()
     }
 
-    public tick() {
+    public tick(current: number, world, grain?) {
+        grain = grain || [{ second: 1 }]
         this.intervalHandler = setInterval(() => {
-            this.areas.forEach(v => v.tick())
+            world.tick(current,grain)
         }, 1000)
     }
 }
