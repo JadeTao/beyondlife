@@ -1,19 +1,22 @@
+import { area } from './../static/interface';
 import jade from '../creature/jade';
 
 export default class clock {
     private intervalHandler: any
+    private areas: Array<area>
 
-    static born(jades: Array<jade>) {
-        return new clock(jades)
+    static born(areas: Array<area>) {
+        return new clock(areas)
     }
 
-    constructor(jades: Array<jade>) {
-        this.tick(jades)
+    constructor(areas: Array<area>) {
+        this.areas = areas
+        this.tick()
     }
 
-    public tick(jades: Array<jade>) {
+    public tick() {
         this.intervalHandler = setInterval(() => {
-            jades.forEach(v => v.tick())
+            this.areas.forEach(v => v.tick())
         }, 1000)
     }
 }

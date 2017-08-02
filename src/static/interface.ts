@@ -3,66 +3,70 @@ interface hair {
   length: number
   feature: string
 }
-interface eye{
-  size:number
-  color:string
+interface eye {
+  size: number
+  color: string
 }
-interface nose{
+interface nose {
 
 }
-interface mouth{
+interface mouth {
 
 }
-interface tooth{
+interface tooth {
 
 }
-interface ear{
+interface ear {
 
 }
-interface skin{
+interface skin {
 
 }
-interface face{
-  eye:eye
-  nose:nose
-  mouth:mouth
-  tooth:tooth
-  ear:ear
+interface face {
+  eye: eye
+  nose: nose
+  mouth: mouth
+  tooth: tooth
+  ear: ear
 }
-interface neck{
+interface neck {
 
 }
-interface head{
-  hair:hair
-  face:face
-  neck:neck
+interface head {
+  hair: hair
+  face: face
+  neck: neck
 }
-interface body{
+interface body {
 
 }
-interface leg{
+interface leg {
 
 }
-interface foot{
-  
-}
-interface physical{
-  head:head
-  body:body
-  leg:leg
-  foot:foot
-}
-
-interface mental{
+interface foot {
 
 }
+interface physical {
+  head: head
+  body: body
+  leg: leg
+  foot: foot
+}
 
-interface social{
+interface mental {
+
+}
+
+interface social {
 
 }
 
 export interface state {
-  physical:physical
-  mental:mental
-  social:social
+  physical: physical
+  mental: mental
+  social: social
+}
+
+export interface area {
+  tick
 }
