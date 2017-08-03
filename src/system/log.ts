@@ -1,21 +1,21 @@
-export default class log {
+export default class Log {
+
+    public static born() {
+        return new Log()
+    }
+
     private who: string
     private when: string
     private what: string
 
-    constructor() { }
-    
-    static born() {
-        return new log()
-    }
     public print(payload, type?: string, format?: boolean) {
-        type = type || 'log'
+        type = type || "log"
         format
             ? console[type](JSON.stringify(payload, null, 4))
             : console[type](JSON.stringify(payload))
     }
-    public store(payload, ){
-
+    public store(payload) {
+        // TODO:storage
     }
 }
 

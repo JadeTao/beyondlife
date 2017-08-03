@@ -1,17 +1,17 @@
 var gulp = require("gulp");
 var browserify = require("browserify");
-var source = require('vinyl-source-stream');
+var source = require("vinyl-source-stream");
 var watchify = require("watchify");
 var tsify = require("tsify");
 var gutil = require("gulp-util");
 var paths = {
-    pages: ['src/*.html']
+    pages: ["src/*.html"]
 };
 
 var watchedBrowserify = watchify(browserify({
-    basedir: '.',
+    basedir: ".",
     debug: true,
-    entries: ['src/world.ts'],
+    entries: ["src/bootstrap.ts"],
     cache: {},
     packageCache: {}
 }).plugin(tsify));
@@ -24,7 +24,7 @@ gulp.task("copy-html", function () {
 function bundle() {
     return watchedBrowserify
         .bundle()
-        .pipe(source('bundle.js'))
+        .pipe(source("bundle.js"))
         .pipe(gulp.dest("dist"));
 }
 
