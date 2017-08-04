@@ -1,22 +1,21 @@
 import jade from "./../creature/jade"
-import { area } from "./../static/interface"
+import { Area } from "./../static/interface"
 
 export default class Clock {
     public static born() {
         return new Clock()
     }
 
-    public timer: number
     private intervalHandler: any
 
-    constructor() {
-        this.timer = (new Date()).getTime()
+    public tellTime() {
+        return (new Date()).getTime()
     }
 
-    public tick(current: number, world, grain?) {
+    public tick(world, grain?) {
         grain = grain || [{ second: 1 }]
         this.intervalHandler = setInterval(() => {
-            world.tick(current, grain)
+            world.tick(grain)
         }, 1000)
     }
 }

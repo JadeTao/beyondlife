@@ -1,21 +1,24 @@
+import { Payload } from "./../static/interface"
 export default class Log {
 
     public static born() {
         return new Log()
     }
 
-    private who: string
-    private when: string
-    private what: string
-
     public print(payload, type?: string, format?: boolean) {
         type = type || "log"
-        format
-            ? console[type](JSON.stringify(payload, null, 4))
-            : console[type](JSON.stringify(payload))
+        if (format) {
+            console[type](JSON.stringify(payload, null, 4))
+        } else {
+            console[type](this.format(payload))
+        }
+
     }
     public store(payload) {
         // TODO:storage
     }
-}
 
+    private format(payload: Payload) {
+        return `${payload.when} ${payload.where} ${payload.who} ${payload.how} ${payload.what}`
+    }
+}
