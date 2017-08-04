@@ -1,19 +1,22 @@
 import continent from "./../area/continent"
 import jade from "./../creature/jade"
-import { area } from "./../static/interface"
+import { Area } from "./../static/interface"
 import clock from "./../system/clock"
 import log from "./../system/log"
 
-export default class World implements area {
+export default class World implements Area {
     public static born() {
         return new World()
     }
+    public birthTime: number
+    public name: string
+
     private clock: clock
-    private timer: number
+
     private log: log
 
-    private areas: area[] = []
-    private name: string
+    private areas: Area[] = []
+
     constructor() {
         this.init()
         this.log = log.born()
@@ -22,21 +25,20 @@ export default class World implements area {
             time: this.getTime()
         }, null, true)
 
-        this.clock.tick(this.clock.timer, this)
+        this.clock.tick(this)
     }
 
     public getTime() {
-        return (new Date()).getTime() - this.timer
+        return (new Date()).getTime() - this.birthTime
     }
 
-    public tick(current, grain) {
-        this.areas.forEach((v) => v.tick(current, grain))
+    public tick(grain) {
+        this.areas.forEach((v) => v.tick(grain))
     }
 
     private init() {
-        this.timer = (new Date()).getTime()
-        this.areas.push(continent.born([jade.born({})]))
+        this.birthTime = (new Date()).getTime()
+        this.areas.push(continent.born(this))
         this.clock = clock.born()
-
     }
 }

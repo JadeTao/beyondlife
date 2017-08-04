@@ -1,77 +1,88 @@
-interface hair {
+interface Hair {
   color: string
   length: number
   feature: string
 }
-interface eye {
+interface Eye {
   size: number
   color: string
 }
-interface nose {
+interface Nose {
 
 }
-interface mouth {
+interface Mouth {
 
 }
-interface tooth {
+interface Tooth {
 
 }
-interface ear {
+interface Ear {
 
 }
-interface skin {
+interface Skin {
 
 }
-interface face {
-  eye: eye
-  nose: nose
-  mouth: mouth
-  tooth: tooth
-  ear: ear
+interface Face {
+  eye: Eye
+  nose: Nose
+  mouth: Mouth
+  tooth: Tooth
+  ear: Ear
 }
-interface neck {
+interface Neck {
 
 }
-interface head {
-  hair: hair
-  face: face
-  neck: neck
+interface Head {
+  hair: Hair
+  face: Face
+  neck: Neck
 }
-interface body {
+interface Body {
 
 }
-interface leg {
+interface Leg {
 
 }
-interface foot {
+interface Foot {
 
 }
-interface physical {
-  head: head
-  body: body
-  leg: leg
-  foot: foot
+interface Physical {
+  head: Head
+  body: Body
+  leg: Leg
+  foot: Foot
 }
 
-interface mental {
-
-}
-
-interface social {
+interface Mental {
 
 }
 
-export interface state {
-  physical: physical
-  mental: mental
-  social: social
+interface Social {
+
 }
 
-export interface area {
-  tick(current: string, grain: any)
+export interface Payload {
+  when: number
+  where: string
+  who: string
+  how: string
+  what: string
+  extra?: string
 }
 
-export interface age {
+export interface State {
+  physical: Physical
+  mental: Mental
+  social: Social
+}
+
+export interface Area {
+  birthTime: number
+  name: string
+  tick(grain: any)
+}
+
+export interface Age {
   year: number
   month: number
   day: number
