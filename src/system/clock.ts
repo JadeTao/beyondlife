@@ -13,9 +13,9 @@ export default class Clock {
     }
 
     public tick(world, grain?) {
-        grain = grain || [{ second: 1 }]
+        const theGrain = grain || { minute: 0, second: 3 }
         this.intervalHandler = setInterval(() => {
-            world.tick(grain)
+            world.tick(theGrain)
         }, 1000)
     }
 }

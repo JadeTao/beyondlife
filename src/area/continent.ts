@@ -6,7 +6,7 @@ export default class Continent implements Area {
     return new Continent(world)
   }
   public world: Area
-  public name: string = "somewhere"
+  public name: string = "init_land"
   public birthTime: number
 
   private jades: jade[]
@@ -16,7 +16,7 @@ export default class Continent implements Area {
     this.jades = [jade.born(this, "robot")]
   }
 
-  public tick(grain) {
+  public tick(grain?) {
     this.jades.forEach((v) => v.tick(grain))
   }
   public add(jade: jade) {

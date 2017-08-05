@@ -32,7 +32,7 @@ export default class World implements Area {
         return (new Date()).getTime() - this.birthTime
     }
 
-    public tick(grain) {
+    public tick(grain?) {
         this.areas.forEach((v) => v.tick(grain))
     }
 

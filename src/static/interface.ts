@@ -79,14 +79,14 @@ export interface State {
 export interface Area {
   birthTime: number
   name: string
-  tick(grain: any)
+  tick(grain?: any)
 }
 
 export interface Age {
   year: number
   month: number
   day: number
-  hour?: number
-  minute?: number
-  second?: number
+  hour: number
+  minute: number
+  second: number
 }
