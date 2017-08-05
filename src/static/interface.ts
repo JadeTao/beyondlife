@@ -62,7 +62,7 @@ interface Social {
 }
 
 export interface Payload {
-  when: number
+  when: number | string
   where: string
   who: string
   how: string

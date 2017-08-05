@@ -1,6 +1,7 @@
 import initState from "./../static/init-state"
 import { Age, Area, Payload, State } from "./../static/interface"
 import Log from "./../system/log"
+import formatTime from "./../utils/formatTime"
 
 export default class Jade {
 
@@ -40,7 +41,7 @@ export default class Jade {
 
   public getLog(): Payload {
     return {
-      when: Math.floor(((new Date().getTime()) - this.area.world.birthTime) / 1000),
+      when: formatTime(Math.floor(((new Date().getTime()) - this.area.world.birthTime) / 1000)),
       where: this.area.name,
       who: this.name,
       how: "grow old",
