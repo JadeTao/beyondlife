@@ -1,5 +1,5 @@
-import { state } from "./interface";
-const initState: state = {
+import { State } from "./interface";
+const initState: State = {
   physical: {
     head: {
       hair: {

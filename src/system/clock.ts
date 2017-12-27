@@ -1,3 +1,5 @@
+import { interval } from "rxjs/observable/interval"
+import { Observable } from "rxjs/Rx"
 import jade from "./../creature/jade"
 import { Area } from "./../static/interface"
 
@@ -5,6 +7,7 @@ export default class Clock {
     public static born() {
         return new Clock()
     }
+    public source = Observable.interval(1000)
 
     private intervalHandler: any
 
@@ -19,3 +22,6 @@ export default class Clock {
         }, 1000)
     }
 }
+
+const a = new Clock()
+a.source.subscribe((v) => console.log(v))
