@@ -4,18 +4,18 @@
   "description": "a world",
   "main": "index.js",
   "scripts": {
+    "start": "tsc --watch",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "jader",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "browserify": "^14.4.0",
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^3.2.1",
-    "gulp-util": "^3.0.8",
-    "tsify": "^3.0.1",
-    "typescript": "^2.4.2",
-    "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.9.0"
+    "@types/rx": "^4.1.1",
+    "tslint": "^5.8.0",
+    "typescript": "^2.4.2"
+  },
+  "dependencies": {
+    "rxjs": "^5.5.6"
   }
 }
