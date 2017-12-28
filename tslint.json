@@ -5,20 +5,24 @@
     ],
     "jsRules": {},
     "rules": {
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape"
+        ],
         "semicolon": [
             false
         ],
-        "trailing-comma": [
-            false
-        ],
-        "no-shadowed-variable": false,
         "object-literal-sort-keys": [
             false
         ],
         "no-console": [
             false
         ],
-        "interface-name": [
+        "no-string-literal": [
+            false
+        ],
+        "max-classes-per-file": [
             false
         ]
     },
