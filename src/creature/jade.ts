@@ -1,7 +1,7 @@
-import initState from "./../static/init-state"
-import { Age, Area, Payload, State } from "./../static/interface"
-import { calculAge, formatTime } from "./../static/utils"
-import Log from "./../system/log"
+import initState from './../static/init-state'
+import { Age, Area, Payload, State } from './../static/interface'
+import { calculAge, formatTime } from './../static/utils'
+import Log from './../system/log'
 
 export default class Jade {
 
@@ -37,12 +37,12 @@ export default class Jade {
 
   public tick(grain?) {
     this.grow(grain)
-    // this.log.print(this.getLog("grow old", "1 second"))
+    // this.log.print(this.getLog('grow old', '1 second'))
   }
 
   public tellName() {
     const time = [{
-      type: "second",
+      type: 'second',
       num: 0
     }]
     return this.name
@@ -60,7 +60,7 @@ export default class Jade {
 
   private grow(grain) {
     // TODO: add grow logic
-    const action = "age"
+    const action = 'age'
     Reflect.ownKeys(grain).forEach((v) => {
       this.age[v] += grain[v]
     })

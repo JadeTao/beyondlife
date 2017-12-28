@@ -1,3 +1,3 @@
-import world from "./area/world"
+import world from './area/world'
 
 world.born()

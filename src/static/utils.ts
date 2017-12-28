@@ -1,4 +1,4 @@
-import { Age } from "./../static/interface"
+import { Age } from './../static/interface'
 
 type st = string | number
 
@@ -33,7 +33,7 @@ export function calculAge(age: Age) {
 }
 
 function adjust(time: st) {
-  return time < 10 ? "0" + time : time
+  return time < 10 ? '0' + time : time
 }
 
 export function formatTime(time: number): string {

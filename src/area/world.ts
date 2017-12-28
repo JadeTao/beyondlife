@@ -1,8 +1,8 @@
-import continent from "./../area/continent"
-import jade from "./../creature/jade"
-import { Area } from "./../static/interface"
-import clock from "./../system/clock"
-import log from "./../system/log"
+import continent from './../area/continent'
+import jade from './../creature/jade'
+import { Area } from './../static/interface'
+import clock from './../system/clock'
+import log from './../system/log'
 
 export default class World implements Area {
     public static born() {
@@ -21,7 +21,7 @@ export default class World implements Area {
         this.init()
         this.log = log.born()
         this.log.print({
-            hi: "game starts",
+            hi: 'game starts',
             time: this.getTime()
         }, null, true)
 

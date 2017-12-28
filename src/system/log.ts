@@ -1,4 +1,4 @@
-import { Payload } from "./../static/interface"
+import { Payload } from './../static/interface'
 export default class Log {
 
     public static born() {
@@ -6,7 +6,7 @@ export default class Log {
     }
 
     public print(payload, type?: string, format?: boolean) {
-        type = type || "log"
+        type = type || 'log'
         if (format) {
             console[type](JSON.stringify(payload, null, 4))
         } else {

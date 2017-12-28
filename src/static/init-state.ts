@@ -1,16 +1,16 @@
-import { State } from "./interface";
+import { State } from './interface';
 const initState: State = {
   physical: {
     head: {
       hair: {
-        color: "#000000",
+        color: '#000000',
         length: 5,
-        feature: "straight"
+        feature: 'straight'
       },
       face: {
         eye: {
           size: 10,
-          color: "#000000"
+          color: '#000000'
         },
         nose: {},
         mouth: {},
