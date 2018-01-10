@@ -1,67 +1,4 @@
-interface Hair {
-  color: string
-  length: number
-  feature: string
-}
-interface Eye {
-  size: number
-  color: string
-}
-interface Nose {
-
-}
-interface Mouth {
-
-}
-interface Tooth {
-
-}
-interface Ear {
-
-}
-interface Skin {
-
-}
-interface Face {
-  eye: Eye
-  nose: Nose
-  mouth: Mouth
-  tooth: Tooth
-  ear: Ear
-}
-interface Neck {
-
-}
-interface Head {
-  hair: Hair
-  face: Face
-  neck: Neck
-}
-interface Body {
-
-}
-interface Leg {
-
-}
-interface Foot {
-
-}
-interface Physical {
-  head: Head
-  body: Body
-  leg: Leg
-  foot: Foot
-}
-
-interface Mental {
-
-}
-
-interface Social {
-
-}
-
-export interface Payload {
+export interface IPayload {
   when: number | string
   where: string
   who: string
@@ -70,19 +7,12 @@ export interface Payload {
   extra?: string
 }
 
-export interface State {
-  physical: Physical
-  mental: Mental
-  social: Social
-}
-
-export interface Area {
-  birthTime: number
-  name: string
+export interface IArea {
+  state: any
   tick(grain?: any)
 }
 
-export interface Age {
+export interface IAge {
   year: number
   month: number
   day: number
