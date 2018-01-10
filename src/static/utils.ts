@@ -1,8 +1,8 @@
-import { Age } from './../static/interface'
+import { IAge } from './../static/interface'
 
 type st = string | number
 
-export function calculAge(age: Age) {
+export function calculAge(age: IAge) {
   let { second, minute, hour, day, month, year } = age
   if (second && second > 60) {
     minute += Math.floor(second / 60)

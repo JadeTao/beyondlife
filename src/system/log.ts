@@ -1,4 +1,4 @@
-import { Payload } from './../static/interface'
+import { IPayload } from './../static/interface'
 export default class Log {
 
     public static born() {
@@ -18,7 +18,7 @@ export default class Log {
         // TODO:storage
     }
 
-    private format(payload: Payload) {
+    private format(payload: IPayload) {
         return `${payload.when} ${payload.where} ${payload.who} ${payload.how} ${payload.what}`
     }
 }

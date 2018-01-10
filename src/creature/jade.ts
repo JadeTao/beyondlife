@@ -1,27 +1,24 @@
 import initState from './../static/init-state'
-import { Age, Area, Payload, State } from './../static/interface'
+import { IAge, IArea, IPayload } from './../static/interface'
 import { calculAge, formatTime } from './../static/utils'
 import Log from './../system/log'
 
 export default class Jade {
 
-  public static born(area: Area, name: string, state?: State) {
-    return new Jade(area, name, state)
+  public static born(area: IArea, name: string) {
+    return new Jade(area, name)
   }
   public area
-
-  private state: State
 
   private log: Log
   private skill: any[]
 
   private name: string
   private gender: string
-  private age: Age
+  private age: IAge
 
-  constructor(area: Area, name: string, state?: State) {
+  constructor(area: IArea, name: string) {
     // TODO:状态的层次问题
-    this.state = Object.assign({}, initState, state)
     this.name = name
     this.log = Log.born()
     this.area = area
@@ -31,7 +28,7 @@ export default class Jade {
       day: 0,
       hour: 0,
       minute: 0,
-      second: 0
+      second: 0,
     }
   }
 
@@ -43,18 +40,18 @@ export default class Jade {
   public tellName() {
     const time = [{
       type: 'second',
-      num: 0
+      num: 0,
     }]
     return this.name
   }
 
-  public getLog(how?: string, what?: string): Payload {
+  public getLog(how?: string, what?: string): IPayload {
     return {
       when: formatTime(Math.floor(((new Date().getTime()) - this.area.world.birthTime) / 1000)),
       where: this.area.name,
       who: this.name,
       how,
-      what
+      what,
     }
   }
 

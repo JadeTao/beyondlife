@@ -1,33 +1,33 @@
-import { State } from './interface';
-const initState: State = {
+import { IState } from './interface';
+const initState: IState = {
   physical: {
     head: {
       hair: {
         color: '#000000',
         length: 5,
-        feature: 'straight'
+        feature: 'straight',
       },
       face: {
         eye: {
           size: 10,
-          color: '#000000'
+          color: '#000000',
         },
         nose: {},
         mouth: {},
         tooth: {},
-        ear: {}
+        ear: {},
       },
-      neck: {}
+      neck: {},
     },
     body: {},
     leg: {},
-    foot: {}
+    foot: {},
   },
   mental: {
 
   },
   social: {
 
-  }
+  },
 }
 export default initState
