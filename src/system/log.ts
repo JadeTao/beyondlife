@@ -12,7 +12,6 @@ export default class Log {
         } else {
             console[type](this.format(payload))
         }
-
     }
     public store(payload) {
         // TODO:storage

@@ -9,13 +9,16 @@ export default class Clock {
         return new Clock()
     }
     public source$
-    public time
+    public realTime
+    public fakeTime
     private intervalHandler: any
 
     constructor(private grain: number = 1000) {
         this.source$ = Observable.interval(1000)
-        this.time = 0;
+        this.realTime = 0;
+        this.fakeTime = 0;
     }
+
     public tellTime() {
         return (new Date()).getTime()
     }
