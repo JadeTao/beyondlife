@@ -15,8 +15,13 @@ export default class Clock {
 
     constructor(private grain: number = 1000) {
         this.source$ = Observable.interval(1000)
-        this.realTime = 0;
-        this.fakeTime = 0;
+        this.realTime = 0
+        this.fakeTime = 0
+
+        this.source$.subscribe(() => {
+            this.realTime++
+            console.log(this.realTime)
+        })
     }
 
     public tellTime() {
