@@ -19,27 +19,7 @@ export default class World implements IArea {
     private areas: IArea[] = []
 
     constructor() {
-        this.init()
-        this.log = log.born()
-        this.log.print({
-            hi: 'game starts',
-            time: this.getTime(),
-        }, null, true)
-
-        this.clock.tick(this)
+        console.log('init');
     }
 
-    public getTime() {
-        return (new Date()).getTime() - this.state.birthTime
-    }
-
-    public tick(grain?) {
-        this.areas.forEach((v) => v.tick(grain))
-    }
-
-    private init() {
-        this.state.birthTime = (new Date()).getTime()
-        this.areas.push(continent.born(this))
-        this.clock = clock.born()
-    }
 }

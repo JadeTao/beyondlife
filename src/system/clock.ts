@@ -9,32 +9,24 @@ export default class Clock {
         return new Clock()
     }
     public source$
+    public time$
     public realTime
-    public fakeTime
+    public time
     private intervalHandler: any
 
-    constructor(private grain: number = 1000) {
-        this.source$ = Observable.interval(1000)
+    constructor(private grain: number = 1) {
         this.realTime = 0
-        this.fakeTime = 0
-
-        this.source$.subscribe(() => {
-            this.realTime++
-            console.log(this.realTime)
-        })
+        this.time = 0
+        this.source$ = Observable.interval(1000)
+        this.time$ = this.source$
+            .do((v) => this.realTime = v * 1000)
+            .do((v) => this.time = v * grain * 1000)
     }
 
     public tellTime() {
         return (new Date()).getTime()
     }
-
-    public tick(world, grain?) {
-        const theGrain = grain || { minute: 0, second: 3 }
-        this.intervalHandler = setInterval(() => {
-            world.tick(theGrain)
-        }, 1000)
-    }
 }
 
 const a = new Clock()
-a.source$.do((v) => console.log('do')).subscribe((v) => console.log(v))
+a.time$.subscribe((v) => console.log(v))

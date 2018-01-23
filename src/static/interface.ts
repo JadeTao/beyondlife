@@ -9,7 +9,6 @@ export interface IPayload {
 
 export interface IArea {
   state: any
-  tick(grain?: any)
 }
 
 export interface IAge {
