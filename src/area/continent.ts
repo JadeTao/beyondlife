@@ -2,9 +2,7 @@ import jade from './../creature/jade'
 import { IArea } from './../static/interface'
 
 export default class Continent implements IArea {
-  public static born(world: IArea) {
-    return new Continent(world)
-  }
+
   public world: IArea
   public state: {
     name: 'init-land',
@@ -17,9 +15,6 @@ export default class Continent implements IArea {
     this.jades = [jade.born(this, 'robot')]
   }
 
-  public tick(grain?) {
-    this.jades.forEach((v) => v.tick(grain))
-  }
   public add(aJade: jade) {
     this.jades.push(aJade)
   }

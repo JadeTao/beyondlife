@@ -1,25 +1,19 @@
 import continent from './../area/continent'
 import jade from './../creature/jade'
 import { IArea } from './../static/interface'
-import clock from './../system/clock'
-import log from './../system/log'
+import Pulse from './../system/pulse'
 
 export default class World implements IArea {
-    public static born() {
-        return new World()
-    }
-    public state = {
-        birthTime: 0,
-        name: 'string',
-    }
-    private clock: clock
 
-    private log: log
+    public state = {
+        name: 'string',
+        birthTime: 0,
+    }
 
     private areas: IArea[] = []
 
-    constructor() {
-        console.log('init');
+    constructor(private pulse: Pulse) {
+        this.pulse.time$.subscribe((v) => console.log(v))
     }
 
 }

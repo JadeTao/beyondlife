@@ -1,3 +1,5 @@
-import world from './area/world'
+import World from './area/world'
+import Pulse from './system/pulse'
 
-world.born()
+const pulse = new Pulse()
+const world = new World(pulse);
