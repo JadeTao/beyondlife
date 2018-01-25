@@ -17,10 +17,10 @@ export default class Pulse {
     constructor(private multiple: number = 1) {
         this.realTime = 0
         this.time = 0
-        this.source$ = Observable.interval(1000).map((v) => (v + 1) * 1000)
-        this.sourceHandler = this.source$.subscribe((v) => this.realTime = v)
-        const gap = 1000 / multiple;
-        this.time$ = Observable.interval(gap).map((v) => (v + 1) * 1000)
+        this.source$ = Observable.interval(1000).mapTo(1000).publish().refCount()
+        this.sourceHandler = this.source$.subscribe((v) => this.realTime += v)
+        const gap = 1000 / multiple
+        this.time$ = Observable.interval(gap).mapTo(1000).publish().refCount()
     }
 
 }

@@ -5,15 +5,29 @@ import Pulse from './../system/pulse'
 
 export default class World implements IArea {
 
+    public static subscribe(pulse: Pulse, script) {
+        return new World(pulse, script)
+    }
+
     public state = {
-        name: 'string',
+        age: 0,
+        name: '',
         birthTime: 0,
     }
 
     private areas: IArea[] = []
 
-    constructor(private pulse: Pulse) {
-        this.pulse.time$.subscribe((v) => console.log(v))
+    constructor(private pulse: Pulse, script) {
+        this.pulse.time$.subscribe(this.observer)
+        this.prepare(pulse, script)
     }
 
+    private observer = (t) => {
+        this.state.age += t
+        this.state.birthTime = new Date().getTime()
+        console.log(this.state.age)
+    }
+    private prepare = (pulse, { continent }) => {
+        console.log(1);
+    }
 }

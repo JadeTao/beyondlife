@@ -5,7 +5,7 @@ export default class Continent implements IArea {
 
   public world: IArea
   public state: {
-    name: 'init-land',
+    name: '',
     birthTime: 0,
   }
   private jades: jade[]

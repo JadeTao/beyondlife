@@ -1,5 +1,4 @@
 import { IAge, IArea, IPayload } from './../static/interface'
-import { calculAge, formatTime } from './../static/utils'
 import Log from './../system/log'
 
 export default class Jade {
