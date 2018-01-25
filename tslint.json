@@ -24,6 +24,9 @@
         ],
         "max-classes-per-file": [
             false
+        ],
+        "no-shadowed-variable":[
+            false
         ]
     },
     "rulesDirectory": []
