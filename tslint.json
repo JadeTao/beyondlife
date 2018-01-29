@@ -27,7 +27,8 @@
         ],
         "no-shadowed-variable":[
             false
-        ]
+        ],
+        "ban-types":false
     },
     "rulesDirectory": []
 }
