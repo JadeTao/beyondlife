@@ -4,7 +4,6 @@ import 'reflect-metadata'
 // 存放所有可以被作为依赖项的类
 const classPool: Function[] = []
 
-// 标记可被注入类
 export function injectable(constructor: Function) {
     // 通过反射机制，获取参数类型列表
     const paramsTypes: Function[] = Reflect.getMetadata('design:paramtypes', constructor)
