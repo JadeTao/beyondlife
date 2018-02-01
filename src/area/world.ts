@@ -1,7 +1,7 @@
 import continent from './../area/continent'
 import jade from './../creature/jade'
+import Pulse from './../service/pulse'
 import { IArea } from './../static/interface'
-import Pulse from './../system/pulse'
 
 export default class World implements IArea {
 

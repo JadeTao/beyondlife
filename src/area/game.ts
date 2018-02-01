@@ -1,4 +1,4 @@
-import Pulse from '../system/pulse'
+import Pulse from '../service/pulse'
 import World from './world'
 
 class Game {

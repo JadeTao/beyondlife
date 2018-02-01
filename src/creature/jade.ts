@@ -1,5 +1,5 @@
+import Log from './../service/log'
 import { IAge, IArea, IPayload } from './../static/interface'
-import Log from './../system/log'
 
 export default class Jade {
 
