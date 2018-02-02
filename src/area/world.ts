@@ -1,25 +1,19 @@
-import continent from './../area/continent'
-import jade from './../creature/jade'
-import Pulse from './../service/pulse'
-import { IArea } from './../static/interface'
+import Continent from '../area/continent'
+import Role from '../core/role'
+import jade from '../creature/jade'
+import Pulse from '../service/pulse'
 
-export default class World implements IArea {
+export default class World extends Role {
 
-    public static subscribe(pulse: Pulse, script) {
-        return new World(pulse, script)
-    }
+    constructor(pulse: Pulse, script: any) {
+        super(pulse, script)
 
-    public state = {
-        age: 0,
-        name: '',
-        birthTime: 0,
-    }
-
-    private areas: IArea[] = []
-
-    constructor(private pulse: Pulse, script) {
         this.pulse.time$.subscribe(this.observer)
         this.prepare(pulse, script)
+    }
+
+    public add(continent: Continent) {
+        this.children.push(continent)
     }
 
     private observer = (t) => {
@@ -27,7 +21,9 @@ export default class World implements IArea {
         this.state.birthTime = new Date().getTime()
         console.log(this.state.age)
     }
+
     private prepare = (pulse, { continent }) => {
-        console.log(1);
+        this.pulse = pulse
+        this.children = continent.map((c) => new Continent(continent, this, pulse))
     }
 }

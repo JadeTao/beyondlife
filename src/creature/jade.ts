@@ -6,16 +6,15 @@ export default class Jade {
   public static born(area: IArea, name: string) {
     return new Jade(area, name)
   }
-  public area
 
-  private name: string
-  private gender: string
-  private age: IAge
+  public state = {
+    type: 'JADE',
+    age: 0,
+    birthTime: 0,
+  }
 
   constructor(area: IArea, name: string) {
-    // TODO:状态的层次问题
-    this.name = name
-    this.area = area
+    console.log('hi')
   }
 
 }

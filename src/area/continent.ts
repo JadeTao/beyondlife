@@ -1,21 +1,18 @@
-import jade from './../creature/jade'
-import { IArea } from './../static/interface'
+import Role from '../core/role'
+import Jade from '../creature/jade'
+import { IArea } from '../static/interface'
 
-export default class Continent implements IArea {
+export default class Continent extends Role {
 
   public world: IArea
-  public state: {
-    name: '',
-    birthTime: 0,
-  }
-  private jades: jade[]
 
-  constructor(world: IArea) {
+  constructor(pulse, script: any, world: IArea) {
+    super(pulse, script, world)
     this.world = world
-    this.jades = [jade.born(this, 'robot')]
+    this.children = [Jade.born(this, 'robot')]
   }
 
-  public add(aJade: jade) {
-    this.jades.push(aJade)
+  public add(jade: Jade) {
+    this.children.push(jade)
   }
 }
