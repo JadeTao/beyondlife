@@ -1,6 +1,6 @@
-import World from './area/world'
+import Game from './area/game'
 import Pulse from './service/pulse'
 import SCRIPT from './story'
 
 const pulse = new Pulse()
-const world = World.subscribe(pulse, SCRIPT);
+Game.bootstrap(SCRIPT)
