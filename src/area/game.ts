@@ -13,6 +13,6 @@ export default class Game {
     const pulse = new Pulse()
   }
   private prepare(pulse, { world }) {
-    this.area = world.map((w) => new World(pulse, world))
+    this.area = world.map((w) => new World(pulse, world, this))
   }
 }

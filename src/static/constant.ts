@@ -1,7 +1,8 @@
 const ROLELEVEL = {
-  world: 'world',
-  continent: 'continent',
-  jade: 'jade',
+  global: 'world',
+  world: 'continent',
+  continent: 'jade',
+  jade: 'hero',
 }
 
 export default ROLELEVEL

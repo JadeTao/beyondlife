@@ -7,6 +7,10 @@ const SCRIPT = {
         name: 'apex',
         hero: true,
         ability: [],
+      }, {
+        nale: 'hazo',
+        hero: false,
+        ability: [],
       }],
     }],
   }],

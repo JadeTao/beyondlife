@@ -1,18 +1,18 @@
 import Role from '../core/role'
 import Jade from '../creature/jade'
-import { IArea } from '../static/interface'
 
 export default class Continent extends Role {
 
-  public world: IArea
-
-  constructor(pulse, script: any, world: IArea) {
-    super(pulse, script, world)
-    this.world = world
-    this.children = [Jade.born(this, 'robot')]
+  constructor(pulse, script: any, place: any) {
+    super(pulse, script, place)
   }
-
-  public add(jade: Jade) {
-    this.children.push(jade)
+  public interpreter(script: any) {
+    let jades
+    if (script.jade.length) {
+      jades = script.jade.map((j) => new Jade(this.pulse, script, this))
+    }
+    if (jades.length) {
+      this.children.concat(jades)
+    }
   }
 }

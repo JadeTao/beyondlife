@@ -1,11 +1,9 @@
+import Role from '../core/role'
+import Pulse from '../service/pulse'
 import Log from './../service/log'
 import { IAge, IArea, IPayload } from './../static/interface'
 
-export default class Jade {
-
-  public static born(area: IArea, name: string) {
-    return new Jade(area, name)
-  }
+export default class Jade extends Role {
 
   public state = {
     type: 'JADE',
@@ -13,7 +11,8 @@ export default class Jade {
     birthTime: 0,
   }
 
-  constructor(area: IArea, name: string) {
+  constructor(pulse: Pulse, script: any, place: any) {
+    super(pulse, script, place)
     console.log('hi')
   }
 
