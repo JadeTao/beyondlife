@@ -8,11 +8,12 @@ export default class Game {
   }
   private pulse: Pulse
 
-  private area
+  private children
   constructor(script) {
     const pulse = new Pulse()
+    this.prepare(pulse, script)
   }
-  private prepare(pulse, { world }) {
-    this.area = world.map((w) => new World(pulse, world, this))
+  private prepare(pulse, script ) {
+    this.children = script.world.map((w) => new World(pulse, w, this))
   }
 }

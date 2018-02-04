@@ -15,5 +15,7 @@ export default class Jade extends Role {
     super(pulse, script, place)
     console.log('hi')
   }
-
+  public interpreter(script: any) {
+    //
+  }
 }

@@ -3,8 +3,15 @@ import Jade from '../creature/jade'
 
 export default class Continent extends Role {
 
+  public state = {
+    type: 'CONTINENT',
+    age: 0,
+    birthTime: 0,
+  }
   constructor(pulse, script: any, place: any) {
     super(pulse, script, place)
+
+    this.interpreter(script)
   }
   public interpreter(script: any) {
     let jades
@@ -14,5 +21,8 @@ export default class Continent extends Role {
     if (jades.length) {
       this.children.concat(jades)
     }
+    Object.entries(script)
+      .filter((v) => v[0] !== 'jade')
+      .forEach((v) => this.state[v[0]] = v[1])
   }
 }
