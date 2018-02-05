@@ -13,8 +13,9 @@ export default class World extends Role {
     constructor(pulse: Pulse, script: any, place) {
         super(pulse, script, place)
 
-        this.pulse.time$.subscribe(this.observer)
         this.interpreter(script)
+        this.state.birthTime = new Date().getTime()
+        this.pulse.time$.subscribe(this.observer)
     }
 
     public add(continent: Continent) {
@@ -24,7 +25,7 @@ export default class World extends Role {
         console.log(script)
         let continents
         if (script.continent.length) {
-            continents = script.continent.map((j) => new Jade(this.pulse, script, this))
+            continents = script.continent.map((j) => new Continent(this.pulse, j, this))
         }
         if (continents.length) {
             this.children.concat(continents)
@@ -35,8 +36,7 @@ export default class World extends Role {
     }
     private observer = (t) => {
         this.state.age += t
-        this.state.birthTime = new Date().getTime()
         console.log(this.state)
-    }
+      }
 
 }

@@ -12,11 +12,13 @@ export default class Continent extends Role {
     super(pulse, script, place)
 
     this.interpreter(script)
+    this.state.birthTime = new Date().getTime()
+    this.pulse.time$.subscribe(this.observer)
   }
   public interpreter(script: any) {
     let jades
     if (script.jade.length) {
-      jades = script.jade.map((j) => new Jade(this.pulse, script, this))
+      jades = script.jade.map((j) => new Jade(this.pulse, j, this))
     }
     if (jades.length) {
       this.children.concat(jades)
@@ -24,5 +26,9 @@ export default class Continent extends Role {
     Object.entries(script)
       .filter((v) => v[0] !== 'jade')
       .forEach((v) => this.state[v[0]] = v[1])
+  }
+  private observer = (t) => {
+    this.state.age += t
+    console.log(this.state)
   }
 }
