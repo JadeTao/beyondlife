@@ -22,7 +22,6 @@ export default class World extends Role {
         this.children.push(continent)
     }
     public interpreter(script) {
-        console.log(script)
         let continents
         if (script.continent.length) {
             continents = script.continent.map((j) => new Continent(this.pulse, j, this))
@@ -38,5 +37,4 @@ export default class World extends Role {
         this.state.age += t
         console.log(this.state)
       }
-
 }

@@ -1,6 +1,8 @@
-const SCRIPT = {
+import { IScript } from './static/interface'
+
+const SCRIPT: IScript = {
   world: [{
-    name: '斗罗大陆',
+    name: '魔多',
     continent: [{
       name: '中原',
       jade: [{
@@ -8,7 +10,7 @@ const SCRIPT = {
         hero: true,
         ability: [],
       }, {
-        nale: 'hazo',
+        name: 'hazo',
         hero: false,
         ability: [],
       }],

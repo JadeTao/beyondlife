@@ -19,3 +19,24 @@ export interface IAge {
   minute: number
   second: number
 }
+export interface IAbility {
+  placeholder?: any
+}
+export interface IJade {
+  name: string
+  hero: boolean
+  ability: IAbility[]
+}
+export interface IContinent {
+  name: string
+  jade: IJade[]
+}
+
+export interface IWorld {
+  name: string
+  continent: IContinent[]
+}
+
+export interface IScript {
+  world: IWorld[]
+}
