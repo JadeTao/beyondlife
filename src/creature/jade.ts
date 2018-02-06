@@ -11,8 +11,8 @@ export default class Jade extends Role {
     birthTime: 0,
   }
 
-  constructor(pulse: Pulse, script: any, place: any) {
-    super(pulse, script, place)
+  constructor(pulse: Pulse, script: any, place: any, log: Log) {
+    super(pulse, script, place, log)
 
     this.interpreter(script)
     this.state.birthTime = new Date().getTime()
@@ -27,6 +27,6 @@ export default class Jade extends Role {
 
   private observer = (t) => {
     this.state.age += t
-    console.log(this.state)
+    this.log.print(this.state.type, this.state)
   }
 }

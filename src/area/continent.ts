@@ -1,5 +1,6 @@
 import Role from '../core/role'
 import Jade from '../creature/jade'
+import Log from '../service/log'
 
 export default class Continent extends Role {
 
@@ -8,8 +9,8 @@ export default class Continent extends Role {
     age: 0,
     birthTime: 0,
   }
-  constructor(pulse, script: any, place: any) {
-    super(pulse, script, place)
+  constructor(pulse, script: any, place: any, log: Log) {
+    super(pulse, script, place, log)
 
     this.interpreter(script)
     this.state.birthTime = new Date().getTime()
@@ -18,7 +19,7 @@ export default class Continent extends Role {
   public interpreter(script: any) {
     let jades
     if (script.jade.length) {
-      jades = script.jade.map((j) => new Jade(this.pulse, j, this))
+      jades = script.jade.map((j) => new Jade(this.pulse, j, this, this.log))
     }
     if (jades.length) {
       this.children.concat(jades)
@@ -29,6 +30,6 @@ export default class Continent extends Role {
   }
   private observer = (t) => {
     this.state.age += t
-    console.log(this.state)
+    this.log.print(this.state.type, this.state)
   }
 }
