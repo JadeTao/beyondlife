@@ -15,6 +15,10 @@ const SCRIPT: IScript = {
         name: 'hazo',
         hero: false,
         ability: [],
+      }, {
+        name: 'jader',
+        hero: false,
+        ability: [],
       }],
     }],
   }],
