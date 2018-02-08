@@ -1,6 +1,5 @@
 import { IScript } from './static/interface'
 
-// 游戏剧本
 // TODO: DSL
 const SCRIPT: IScript = {
   world: [{

@@ -7,7 +7,7 @@ import ROLELEVEL from '../static/constant'
 export default abstract class Role {
 
   public children = []
-
+  public queue = []
   constructor(public pulse, private script: any, private place: any, public log: Log) {
 
   }
